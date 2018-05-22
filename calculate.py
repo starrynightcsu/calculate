@@ -4,6 +4,7 @@ try:
    earning = int(sys.argv[1])
 except:
    print("parameter Error")
+   sys.exit()
 #calculate the tax
 m = earning-0-3500
 if m<0:
