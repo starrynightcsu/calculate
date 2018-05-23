@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+import sys
+
+def tax(m):
+    taxin = m - m*0.165-3500
+    if taxin<0:
+        t = 0
+    elif taxin>=0 and taxin<=1500:
+        t = taxin*0.03-0
+    elif taxin>1500 and taxin<=4500: 
+        t = taxin*0.1 -105
+    elif taxin>4500 and taxin<=9000:
+        t = taxin*0.2 -555
+    elif taxin>9000 and taxin<=35000:
+        t = taxin*0.25-1005
+    elif taxin>35000 and taxin<=55000:
+        t = taxin*0.3 -2755
+    elif taxin>55000 and taxin<=80000:
+        t = taxin*0.35-5505
+    else:
+        t = taxin*0.45-13505   
+    after_tax = m - m * 0.165 - t 
+    return format(after_tax, '.2f')
+    
+if __name__ == '__main__':
+    for arg in sys.argv[1:]:
+        n,i=arg.split(':')
+        p = tax(int(i))
+        print('{}:{}'.format(n, p))
